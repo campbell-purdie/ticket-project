@@ -40,4 +40,3 @@ spec:
         - name: initdb
           configMap:
             name: mysql-initdb
-
