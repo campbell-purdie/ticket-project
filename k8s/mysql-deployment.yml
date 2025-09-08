@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0 #same official image we used in docker baseline
+          ports:
+            - containerPort: 3306
+          env: #enviornment variables stays the same
+            - name: MYSQL_ROOT_PASSWORD
+              value: "justiceservedec2"
+            - name: MYSQL_DATABASE
+              value: "transportsql"
+            - name: MYSQL_USER
+              value: "transportbanditos"
+            - name: MYSQL_PASSWORD
+              value: "itbanditos69"
+          volumeMounts:
+            - name: mysql-persistent-storage #mounting so everytime k8 pod starts the data will remain
+              mountPath: /var/lib/mysql
+            - name: initdb
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-pvc
+        - name: initdb
+          configMap:
+            name: mysql-initdb
+

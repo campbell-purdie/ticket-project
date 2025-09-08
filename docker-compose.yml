@@ -55,6 +55,7 @@ services:
       - ./proxy/ssl/localhost.key:/etc/ssl/private/localhost.key:ro
     networks:
       - frontend
+      - backend
 
 volumes:
   mysql_data:
