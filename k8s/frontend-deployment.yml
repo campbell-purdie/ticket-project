@@ -21,13 +21,13 @@ spec:
             - containerPort: 80
           env:
           - name: DB_HOST
-            value: "mysql-service"
+            value: "mysql"
           - name: DB_PORT
             value: "3306"
           - name: DB_DATABASE
-            value: "transport"
+            value: "transportsql"
           - name: DB_USERNAME
-            value: "transportuser"
+            value: "transporbanditos"
           - name: DB_PASSWORD
-            value: "transportpass"
+            value: "itbanditos69"
 
