@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: phpmyadmin-service
 spec:
+  type: NodePort
   selector:
     app: phpmyadmin
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 80
-      protocol: TCP
-  type: ClusterIP
+      nodePort: 30081

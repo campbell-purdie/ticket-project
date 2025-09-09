@@ -21,13 +21,13 @@ spec:
             - containerPort: 3306
           env: #enviornment variables stays the same
             - name: MYSQL_ROOT_PASSWORD
-              value: "justiceservedec2"
+              value: "rootpassword123"
             - name: MYSQL_DATABASE
-              value: "transportsql"
+              value: "transport"
             - name: MYSQL_USER
-              value: "transportbanditos"
+              value: "transportuser"
             - name: MYSQL_PASSWORD
-              value: "itbanditos69"
+              value: "transportpass"
           volumeMounts:
             - name: mysql-persistent-storage #mounting so everytime k8 pod starts the data will remain
               mountPath: /var/lib/mysql
