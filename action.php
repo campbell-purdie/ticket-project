@@ -1,6 +1,15 @@
 <?php 
 $con=mysqli_connect('mysql', 'transportuser', 'transportpass', 'transport');
 session_start();
+if (empty($_SESSION['csrf_token'])) {
+	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	if (empty($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'])) {
+		http_response_code(403);
+		exit('Invalid CSRF token')
+			}
+}
 if (isset($_POST['alogin'])) {
 	$name=$_POST['uname'];
 	$psw=$_POST['psw'];
