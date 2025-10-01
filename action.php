@@ -7,7 +7,7 @@ if (empty($_SESSION['csrf_token'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if (empty($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'])) {
 		http_response_code(403);
-		exit('Invalid CSRF token')
+		exit('Invalid CSRF token');
 			}
 }
 if (isset($_POST['alogin'])) {
