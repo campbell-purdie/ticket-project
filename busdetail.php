@@ -1,6 +1,10 @@
 <?php 
 include('../action.php');
- if(!isset($_SESSION['aname'])){
+session_start():
+if(empty($_SESSION['csrf_token'])) {
+   $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+ }
+if(!isset($_SESSION['aname'])){
    header('location:admin.php');
  }
 ?>
@@ -28,31 +32,40 @@ include('../action.php');
                     <h2>Bus details </h2>
                     <div class="form-group">
                         <input type="text" class="form-input" name="bname" id="name" placeholder="Bus Name"/>
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-input" name="bno" id="name" placeholder="Bus No"/>
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>
                     </div>
                      <div class="form-group">
                         <input type="text" class="form-input" name="from" id="name" placeholder="From"/>
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>
                     </div>
                      <div class="form-group">
                         <input type="text" class="form-input" name="to" id="name" placeholder="To"/>
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>
                     </div>
                      <div class="form-group">
                         <input type="text" class="form-input" name="time" id="name" placeholder="Bus timming"/>
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>
                     </div>
                      <div class="form-group">
                         <input type="text" class="form-input" name="sno" id="name" placeholder="Number of seat"/>
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>
                     </div>
                      <div class="form-group">
                         <input type="text" class="form-input" name="fare" id="name" placeholder="Fare"/>
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>
                     </div>
                     <div class="form-group">
                         <input type="radio" class="form-input" name="rad" id="name" value="Ac" />Ac
                          <input type="radio" class="form-input" name="rad" id="name" value="Non Ac" />Non Ac
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="bus" id="submit" class="form-submit submit" value="Submit"/>
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>
                     </div>
                 </form>
             </div>
